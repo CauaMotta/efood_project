@@ -1,10 +1,11 @@
+import Header from './components/Header'
 import { GlobalStyle } from './styles'
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Ola mundo!</h1>
+      <Header />
     </>
   )
 }
