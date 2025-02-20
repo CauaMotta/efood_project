@@ -7,28 +7,26 @@ import {
   Tag,
   Description
 } from './styles'
-import hiokiSushi from '../../assets/images/hioki-sushi.png'
+import RestaurantClass from '../../models/Restaurant'
 
-const Restaurant = () => (
+type Props = RestaurantClass
+
+const Restaurant = ({ title, note, description, tags, image }: Props) => (
   <CardContainer>
-    <img src={hiokiSushi} alt="" />
+    <img src={image} alt={title} />
     <ContentContainer>
       <TitleContainer>
-        <p>Nome do Restaurante</p>
+        <p>{title}</p>
         <p>
-          4.9 <i className="fa-solid fa-star"></i>
+          {note} <i className="fa-solid fa-star"></i>
         </p>
       </TitleContainer>
-      <Description>
-        Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis
-        frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega
-        rápida, embalagens cuidadosas e qualidade garantida. <br />
-        Experimente o Japão sem sair do lar com nosso delivery!
-      </Description>
+      <Description>{description}</Description>
       <Link>Saiba mais</Link>
       <TagList>
-        <Tag>Destaque da semana</Tag>
-        <Tag>Japonesa</Tag>
+        {tags.map((tag) => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
       </TagList>
     </ContentContainer>
   </CardContainer>
