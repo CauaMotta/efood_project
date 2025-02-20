@@ -8,4 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: ${variables.fontFamily};
   }
+
+  body {
+    background-color: ${variables.backgroundColor}
+  }
 `
