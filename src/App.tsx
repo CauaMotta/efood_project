@@ -4,6 +4,7 @@ import { GlobalStyle } from './styles'
 import RestaurantClass from './models/Restaurant'
 import HiokiSushi from './assets/images/hioki-sushi.png'
 import LaDolce from './assets/images/la-dolce-vita-trattoria.png'
+import Footer from './components/Footer'
 
 const restaurants: RestaurantClass[] = [
   {
@@ -68,6 +69,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <RestaurantList restaurants={restaurants} />
+      <Footer />
     </>
   )
 }

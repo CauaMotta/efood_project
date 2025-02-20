@@ -1,6 +1,6 @@
 export default {
   // Colors
-  fontColor: '#FFEBD9',
+  secundaryColor: '#FFEBD9',
   primaryColor: '#E66767',
   backgroundColor: '#FFF8F2',
   starColor: '#FFB930',

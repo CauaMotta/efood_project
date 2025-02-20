@@ -45,7 +45,7 @@ export const Link = styled.a`
   display: inline-block;
   text-decoration: none;
   background-color: ${variables.primaryColor};
-  color: ${variables.fontColor};
+  color: ${variables.secundaryColor};
   padding: 4px 6px;
   margin-top: 16px;
 `
@@ -60,7 +60,7 @@ export const TagList = styled.div`
 
 export const Tag = styled.span`
   background-color: ${variables.primaryColor};
-  color: ${variables.fontColor};
+  color: ${variables.secundaryColor};
   padding: 6px 4px;
   font-size: 12px;
 `
