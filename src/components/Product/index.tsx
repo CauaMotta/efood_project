@@ -1,19 +1,16 @@
 import { BuyButton, Card, Description, Title } from './styles'
 
-import pizzaMarguerita from '../../assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
 import ProductClass from '../../models/Product'
 
-type Props = {
-  product: ProductClass
-}
+type Props = ProductClass
 
-const Product = ({ product }: Props) => {
+const Product = ({ title, description, image }: Props) => {
   return (
     <Card>
-      <img src={pizzaMarguerita} alt="" />
+      <img src={image} alt={title} />
       <div>
-        <Title>{product.title}</Title>
-        <Description>{product.description}</Description>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
         <BuyButton>Adicionar ao carrinho</BuyButton>
       </div>
     </Card>

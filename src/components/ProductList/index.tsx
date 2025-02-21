@@ -19,7 +19,13 @@ const ProductList = ({ restaurant }: Props) => {
       </Presentation>
       <MainContainer>
         {restaurant.products.map((product) => (
-          <Product key={product.id} product={product} />
+          <Product
+            key={product.id}
+            id={product.id}
+            title={product.title}
+            description={product.description}
+            image={product.image}
+          />
         ))}
       </MainContainer>
     </>

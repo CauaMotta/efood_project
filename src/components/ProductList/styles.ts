@@ -17,6 +17,7 @@ export const Presentation = styled.div`
   height: 280px;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   padding: 32px;
 
   div {
