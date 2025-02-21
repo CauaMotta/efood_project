@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { HeaderContainer, NavButton, Slogan, Container } from './styles'
 import backgroundImage from '../../assets/images/header-background.png'
-import efoodLogo from '../../assets/images/efood-logo.svg'
+import efoodLogo from '../../../public/assets/images/efood-logo.svg'
 
 export type Props = {
   profile?: boolean
