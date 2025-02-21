@@ -2,18 +2,25 @@ import {
   CardContainer,
   TitleContainer,
   ContentContainer,
-  Link,
   TagList,
   Tag,
-  Description
+  Description,
+  PerfilLink
 } from './styles'
 import RestaurantClass from '../../models/Restaurant'
 
 type Props = RestaurantClass
 
-const Restaurant = ({ title, note, description, tags, image }: Props) => (
+const Restaurant = ({
+  title,
+  note,
+  description,
+  tags,
+  image,
+  perfil
+}: Props) => (
   <CardContainer>
-    <img src={image} alt={title} />
+    <img src={`${image}.png`} alt={title} />
     <ContentContainer>
       <TitleContainer>
         <p>{title}</p>
@@ -22,7 +29,7 @@ const Restaurant = ({ title, note, description, tags, image }: Props) => (
         </p>
       </TitleContainer>
       <Description>{description}</Description>
-      <Link>Saiba mais</Link>
+      <PerfilLink to={perfil}>Saiba mais</PerfilLink>
       <TagList>
         {tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>

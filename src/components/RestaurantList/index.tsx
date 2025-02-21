@@ -17,6 +17,7 @@ const RestaurantList = ({ restaurants }: Props) => (
         description={restaurant.description}
         tags={restaurant.tags}
         image={restaurant.image}
+        perfil={restaurant.perfil}
       />
     ))}
   </MainContainer>

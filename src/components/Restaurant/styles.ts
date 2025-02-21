@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import variables from '../../styles/variables'
 
@@ -41,7 +42,7 @@ export const Description = styled.p`
   font-weight: normal;
 `
 
-export const Link = styled.a`
+export const PerfilLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
   background-color: ${variables.primaryColor};

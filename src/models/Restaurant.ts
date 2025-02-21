@@ -1,3 +1,5 @@
+import Product from './Product'
+
 class Restaurant {
   id: number
   title: string
@@ -5,6 +7,8 @@ class Restaurant {
   description: string
   tags: string[]
   image: string
+  perfil: string
+  products: Product[]
 
   constructor(
     id: number,
@@ -12,7 +16,9 @@ class Restaurant {
     note: number,
     description: string,
     tags: string[],
-    image: string
+    image: string,
+    perfil: string,
+    products: Product[]
   ) {
     this.id = id
     this.title = title
@@ -20,6 +26,8 @@ class Restaurant {
     this.description = description
     this.tags = tags
     this.image = image
+    this.perfil = perfil
+    this.products = products
   }
 }
 
