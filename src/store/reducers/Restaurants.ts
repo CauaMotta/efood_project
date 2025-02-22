@@ -14,7 +14,7 @@ const initialState: RestaurantState = {
       description:
         'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
       tags: ['Japonesa', 'Destaque da Semana'],
-      image: './public/assets/images/hioki-sushi',
+      image: '/assets/images/hioki-sushi',
       perfil: '/hioki-sushi',
       products: [
         {
@@ -23,7 +23,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 2,
@@ -31,7 +31,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 3,
@@ -39,7 +39,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 4,
@@ -47,7 +47,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 5,
@@ -55,7 +55,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 6,
@@ -63,7 +63,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         }
       ]
     },
@@ -74,7 +74,7 @@ const initialState: RestaurantState = {
       description:
         'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
       tags: ['Italiana'],
-      image: './public/assets/images/la-dolce-vita-trattoria',
+      image: '/assets/images/la-dolce-vita-trattoria',
       perfil: '/la-dolce-vita-trattoria',
       products: [
         {
@@ -83,7 +83,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 2,
@@ -91,7 +91,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 3,
@@ -99,7 +99,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 4,
@@ -107,7 +107,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 5,
@@ -115,7 +115,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 6,
@@ -123,7 +123,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         }
       ]
     },
@@ -134,7 +134,7 @@ const initialState: RestaurantState = {
       description:
         'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
       tags: ['Italiana'],
-      image: './public/assets/images/la-dolce-vita-trattoria',
+      image: '/assets/images/la-dolce-vita-trattoria',
       perfil: '/la-dolce-vita-trattoria',
       products: [
         {
@@ -143,7 +143,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 2,
@@ -151,7 +151,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 3,
@@ -159,7 +159,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 4,
@@ -167,7 +167,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 5,
@@ -175,7 +175,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 6,
@@ -183,7 +183,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         }
       ]
     },
@@ -194,7 +194,7 @@ const initialState: RestaurantState = {
       description:
         'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
       tags: ['Italiana'],
-      image: './public/assets/images/la-dolce-vita-trattoria',
+      image: '/assets/images/la-dolce-vita-trattoria',
       perfil: '/la-dolce-vita-trattoria',
       products: [
         {
@@ -203,7 +203,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 2,
@@ -211,7 +211,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 3,
@@ -219,7 +219,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 4,
@@ -227,7 +227,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 5,
@@ -235,7 +235,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 6,
@@ -243,7 +243,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         }
       ]
     },
@@ -254,7 +254,7 @@ const initialState: RestaurantState = {
       description:
         'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
       tags: ['Italiana'],
-      image: './public/assets/images/la-dolce-vita-trattoria',
+      image: '/assets/images/la-dolce-vita-trattoria',
       perfil: '/la-dolce-vita-trattoria',
       products: [
         {
@@ -263,7 +263,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 2,
@@ -271,7 +271,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 3,
@@ -279,7 +279,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 4,
@@ -287,7 +287,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 5,
@@ -295,7 +295,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 6,
@@ -303,7 +303,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         }
       ]
     },
@@ -314,7 +314,7 @@ const initialState: RestaurantState = {
       description:
         'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
       tags: ['Italiana'],
-      image: './public/assets/images/la-dolce-vita-trattoria',
+      image: '/assets/images/la-dolce-vita-trattoria',
       perfil: '/la-dolce-vita-trattoria',
       products: [
         {
@@ -323,7 +323,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 2,
@@ -331,7 +331,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 3,
@@ -339,7 +339,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 4,
@@ -347,7 +347,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 5,
@@ -355,7 +355,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         },
         {
           id: 6,
@@ -363,7 +363,7 @@ const initialState: RestaurantState = {
           description:
             'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
           image:
-            './public/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
+            '/assets/images/la-dolce-vita-trattoria-products/pizza-marguerita.png'
         }
       ]
     }
