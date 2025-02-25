@@ -1,30 +1,30 @@
-import Restaurant from '../../models/Restaurant'
+import { RestaurantModel } from '../../pages/Home'
 import Product from '../Product'
 import { MainContainer, Presentation, Title, Tag } from './styles'
 
 type Props = {
-  restaurant: Restaurant
+  restaurant: RestaurantModel
 }
 
 const ProductList = ({ restaurant }: Props) => {
   return (
     <>
-      <Presentation
-        style={{ backgroundImage: `url(${restaurant.image}-large.png)` }}
-      >
+      <Presentation style={{ backgroundImage: `url(${restaurant.capa})` }}>
         <div>
-          <Tag>{restaurant.tags[0]}</Tag>
-          <Title>{restaurant.title}</Title>
+          <Tag>{restaurant.tipo}</Tag>
+          <Title>{restaurant.titulo}</Title>
         </div>
       </Presentation>
       <MainContainer>
-        {restaurant.products.map((product) => (
+        {restaurant.cardapio.map((product) => (
           <Product
             key={product.id}
             id={product.id}
-            title={product.title}
-            description={product.description}
-            image={product.image}
+            nome={product.nome}
+            foto={product.foto}
+            descricao={product.descricao}
+            preco={product.preco}
+            porcao={product.porcao}
           />
         ))}
       </MainContainer>

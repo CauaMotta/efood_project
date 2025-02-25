@@ -14,6 +14,7 @@ export const CardContainer = styled.div`
     display: block;
     width: 100%;
     height: 217px;
+    object-fit: cover;
   }
 `
 
@@ -64,4 +65,5 @@ export const Tag = styled.span`
   color: ${variables.secundaryColor};
   padding: 6px 4px;
   font-size: 12px;
+  text-transform: capitalize;
 `

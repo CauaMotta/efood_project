@@ -1,16 +1,16 @@
+import { menuModel } from '../../pages/Home'
+import descriptionLimiter from '../../utils/DescriptionFormatter'
 import { BuyButton, Card, Description, Title } from './styles'
 
-import ProductClass from '../../models/Product'
+type Props = menuModel
 
-type Props = ProductClass
-
-const Product = ({ title, description, image }: Props) => {
+const Product = ({ id, nome, foto, descricao, preco, porcao }: Props) => {
   return (
     <Card>
-      <img src={image} alt={title} />
-      <div>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
+      <img src={foto} alt={nome} />
+      <div className="container">
+        <Title>{nome}</Title>
+        <Description>{descriptionLimiter(descricao, 150)}</Description>
         <BuyButton>Adicionar ao carrinho</BuyButton>
       </div>
     </Card>

@@ -1,25 +1,15 @@
-import RestaurantClass from '../../models/Restaurant'
 import Restaurant from '../Restaurant'
 import { MainContainer } from './styles'
+import { RestaurantModel } from '../../pages/Home'
 
 type Props = {
-  restaurants: RestaurantClass[]
+  restaurants: RestaurantModel[]
 }
 
 const RestaurantList = ({ restaurants }: Props) => (
   <MainContainer>
     {restaurants.map((restaurant) => (
-      <Restaurant
-        key={restaurant.id}
-        id={restaurant.id}
-        title={restaurant.title}
-        note={restaurant.note}
-        description={restaurant.description}
-        tags={restaurant.tags}
-        image={restaurant.image}
-        perfil={restaurant.perfil}
-        products={restaurant.products}
-      />
+      <Restaurant key={restaurant.id} restaurant={restaurant} />
     ))}
   </MainContainer>
 )

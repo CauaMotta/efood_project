@@ -19,6 +19,7 @@ export const Presentation = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   padding: 32px;
+  position: relative;
 
   div {
     max-width: 1024px;
@@ -28,6 +29,19 @@ export const Presentation = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `
 
@@ -41,4 +55,5 @@ export const Tag = styled.span`
   font-size: 32px;
   font-weight: 100;
   color: ${variables.fontColor};
+  text-transform: capitalize;
 `

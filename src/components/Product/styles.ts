@@ -2,15 +2,30 @@ import styled from 'styled-components'
 import variables from '../../styles/variables'
 
 export const Card = styled.div`
-  width: 320px;
+  max-width: 320px;
+  width: 100%;
   height: 338px;
+
+  display: flex;
+  flex-direction: column;
 
   background-color: ${variables.primaryColor};
   color: ${variables.secundaryColor};
   padding: 8px;
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+
   img {
     display: block;
+    max-width: 304px;
+    height: 167px;
+    width: 100%;
+    object-fit: cover;
   }
 `
 

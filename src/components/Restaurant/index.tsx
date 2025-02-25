@@ -7,36 +7,34 @@ import {
   Description,
   PerfilLink
 } from './styles'
-import RestaurantClass from '../../models/Restaurant'
+import { RestaurantModel } from '../../pages/Home'
+import descriptionLimiter from '../../utils/DescriptionFormatter'
 
-type Props = RestaurantClass
+type Props = {
+  restaurant: RestaurantModel
+}
 
-const Restaurant = ({
-  title,
-  note,
-  description,
-  tags,
-  image,
-  perfil
-}: Props) => (
-  <CardContainer>
-    <img src={`${image}.png`} alt={title} />
-    <ContentContainer>
-      <TitleContainer>
-        <p>{title}</p>
-        <p>
-          {note} <i className="fa-solid fa-star"></i>
-        </p>
-      </TitleContainer>
-      <Description>{description}</Description>
-      <PerfilLink to={perfil}>Saiba mais</PerfilLink>
-      <TagList>
-        {tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
-        ))}
-      </TagList>
-    </ContentContainer>
-  </CardContainer>
-)
+const Restaurant = ({ restaurant }: Props) => {
+  return (
+    <CardContainer>
+      <img src={restaurant.capa} alt={restaurant.titulo} />
+      <ContentContainer>
+        <TitleContainer>
+          <p>{restaurant.titulo}</p>
+          <p>
+            {restaurant.avaliacao} <i className="fa-solid fa-star"></i>
+          </p>
+        </TitleContainer>
+        <Description>
+          {descriptionLimiter(restaurant.descricao, 234)}
+        </Description>
+        <PerfilLink to={`/profile/${restaurant.id}`}>Saiba mais</PerfilLink>
+        <TagList>
+          <Tag>{restaurant.tipo}</Tag>
+        </TagList>
+      </ContentContainer>
+    </CardContainer>
+  )
+}
 
 export default Restaurant
