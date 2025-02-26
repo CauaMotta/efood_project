@@ -20,12 +20,14 @@ const Product = ({ nome, foto, descricao, preco, porcao }: Props) => {
 
   return (
     <>
-      <Card onClick={() => setModalActive(true)}>
+      <Card>
         <img src={foto} alt={nome} />
         <div className="container">
           <Title>{nome}</Title>
           <Description>{descriptionFormatter(descricao, 150)}</Description>
-          <BuyButton>Adicionar ao carrinho</BuyButton>
+          <BuyButton onClick={() => setModalActive(true)}>
+            Adicionar ao carrinho
+          </BuyButton>
         </div>
       </Card>
 
