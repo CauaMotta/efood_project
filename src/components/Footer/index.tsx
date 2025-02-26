@@ -1,7 +1,7 @@
-import efoodLogo from '/assets/images/efood-logo.svg'
-import facebook from '/assets/images/facebook.svg'
-import instagram from '/assets/images/instagram.svg'
-import twitter from '/assets/images/twitter.svg'
+import efoodLogo from '/assets/efood-logo.svg'
+import facebook from '/assets/facebook.svg'
+import instagram from '/assets/instagram.svg'
+import twitter from '/assets/twitter.svg'
 import { FooterContainer, SocialList } from './styles'
 
 const Footer = () => (

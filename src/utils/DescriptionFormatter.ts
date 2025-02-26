@@ -1,4 +1,4 @@
-const descriptionLimiter = (description: string, limit: number) => {
+const descriptionFormatter = (description: string, limit: number) => {
   if (description.length > limit) {
     return description.slice(0, limit) + '...'
   } else {
@@ -6,4 +6,4 @@ const descriptionLimiter = (description: string, limit: number) => {
   }
 }
 
-export default descriptionLimiter
+export default descriptionFormatter

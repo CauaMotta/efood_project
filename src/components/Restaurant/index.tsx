@@ -8,7 +8,7 @@ import {
   PerfilLink
 } from './styles'
 import { RestaurantModel } from '../../pages/Home'
-import descriptionLimiter from '../../utils/DescriptionFormatter'
+import descriptionFormatter from '../../utils/DescriptionFormatter'
 
 type Props = {
   restaurant: RestaurantModel
@@ -26,10 +26,11 @@ const Restaurant = ({ restaurant }: Props) => {
           </p>
         </TitleContainer>
         <Description>
-          {descriptionLimiter(restaurant.descricao, 234)}
+          {descriptionFormatter(restaurant.descricao, 234)}
         </Description>
         <PerfilLink to={`/profile/${restaurant.id}`}>Saiba mais</PerfilLink>
         <TagList>
+          {restaurant.destacado && <Tag>Destaque da semana</Tag>}
           <Tag>{restaurant.tipo}</Tag>
         </TagList>
       </ContentContainer>
