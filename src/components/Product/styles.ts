@@ -12,7 +12,6 @@ export const Card = styled.div`
   background-color: ${variables.primaryColor};
   color: ${variables.secundaryColor};
   padding: 8px;
-  cursor: pointer;
 
   .container {
     display: flex;
