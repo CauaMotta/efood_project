@@ -17,15 +17,7 @@ const ProductList = ({ restaurant }: Props) => {
       </Presentation>
       <MainContainer>
         {restaurant.cardapio.map((product) => (
-          <Product
-            key={product.id}
-            id={product.id}
-            nome={product.nome}
-            foto={product.foto}
-            descricao={product.descricao}
-            preco={product.preco}
-            porcao={product.porcao}
-          />
+          <Product key={product.id} food={product} />
         ))}
       </MainContainer>
     </>

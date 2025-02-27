@@ -1,30 +1,34 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { menuModel } from '../../pages/Home'
 import descriptionFormatter from '../../utils/DescriptionFormatter'
-import {
-  BuyButton,
-  Card,
-  Description,
-  Modal,
-  ModalContent,
-  Overlay,
-  Title
-} from './styles'
+import { Card, Description, Modal, ModalContent, Title } from './styles'
+import { BuyButton, Overlay } from '../../styles'
 import close from '/assets/close.svg'
 import priceFormatter from '../../utils/PriceFormatter'
+import { addItem, openCart } from '../../store/reducers/cart'
 
-type Props = menuModel
+type Props = {
+  food: menuModel
+}
 
-const Product = ({ nome, foto, descricao, preco, porcao }: Props) => {
+const Product = ({ food }: Props) => {
   const [modalActive, setModalActive] = useState(false)
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(addItem(food))
+    setModalActive(false)
+    dispatch(openCart())
+  }
 
   return (
     <>
       <Card>
-        <img src={foto} alt={nome} />
+        <img src={food.foto} alt={food.nome} />
         <div className="container">
-          <Title>{nome}</Title>
-          <Description>{descriptionFormatter(descricao, 150)}</Description>
+          <Title>{food.nome}</Title>
+          <Description>{descriptionFormatter(food.descricao, 150)}</Description>
           <BuyButton onClick={() => setModalActive(true)}>
             Adicionar ao carrinho
           </BuyButton>
@@ -34,23 +38,23 @@ const Product = ({ nome, foto, descricao, preco, porcao }: Props) => {
       {modalActive && (
         <Modal>
           <div className="container">
-            <img src={foto} alt={nome} />
+            <img src={food.foto} alt={food.nome} />
             <ModalContent>
-              <Title>{nome}</Title>
+              <Title>{food.nome}</Title>
               <Description>
-                {descricao} <br />
+                {food.descricao} <br />
                 <br />
-                Serve: {porcao}
+                Serve: {food.porcao}
               </Description>
-              <BuyButton>
-                Adicionar ao carrinho - R$ {priceFormatter(preco)}
+              <BuyButton onClick={addToCart}>
+                Adicionar ao carrinho - {priceFormatter(food.preco)}
               </BuyButton>
             </ModalContent>
             <button aria-label="Close" onClick={() => setModalActive(false)}>
               <span style={{ backgroundImage: `url(${close})` }}></span>
             </button>
           </div>
-          <Overlay onClick={() => setModalActive(false)}></Overlay>
+          <Overlay onClick={() => setModalActive(false)} />
         </Modal>
       )}
     </>

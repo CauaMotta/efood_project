@@ -3,10 +3,12 @@ import { menuModel } from '../../pages/Home'
 
 type CartState = {
   items: menuModel[]
+  isOpen: boolean
 }
 
 const initialState: CartState = {
-  items: []
+  items: [],
+  isOpen: false
 }
 
 const cartSlice = createSlice({
@@ -15,9 +17,18 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action: PayloadAction<menuModel>) => {
       state.items.push(action.payload)
+    },
+    removeItem: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload)
+    },
+    openCart: (state) => {
+      state.isOpen = true
+    },
+    closeCart: (state) => {
+      state.isOpen = false
     }
   }
 })
 
-export const { addItem } = cartSlice.actions
+export const { addItem, removeItem, openCart, closeCart } = cartSlice.actions
 export default cartSlice.reducer

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
+import { BuyButton } from '../../styles'
 
 export const Card = styled.div`
   max-width: 320px;
@@ -10,7 +11,7 @@ export const Card = styled.div`
   flex-direction: column;
 
   background-color: ${variables.primaryColor};
-  color: ${variables.secundaryColor};
+  color: ${variables.secondaryColor};
   padding: 8px;
 
   .container {
@@ -39,17 +40,6 @@ export const Description = styled.p`
   font-size: 14px;
   font-weight: normal;
   line-height: 22px;
-`
-
-export const BuyButton = styled.button`
-  background-color: ${variables.secundaryColor};
-  color: ${variables.primaryColor};
-  font-size: 14px;
-  font-weight: bold;
-  padding: 4px;
-  border: none;
-  cursor: pointer;
-  margin-top: 8px;
 `
 
 export const Modal = styled.div`
@@ -120,13 +110,4 @@ export const ModalContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-`
-
-export const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
 `

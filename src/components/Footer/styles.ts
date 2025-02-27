@@ -10,7 +10,7 @@ export const FooterContainer = styled.footer`
 
   font-size: 10px;
   color: ${variables.primaryColor};
-  background-color: ${variables.secundaryColor};
+  background-color: ${variables.secondaryColor};
   padding: 40px;
 
   p {

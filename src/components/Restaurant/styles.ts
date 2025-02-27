@@ -47,7 +47,7 @@ export const PerfilLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
   background-color: ${variables.primaryColor};
-  color: ${variables.secundaryColor};
+  color: ${variables.secondaryColor};
   padding: 4px 6px;
   margin-top: 16px;
 `
@@ -62,7 +62,7 @@ export const TagList = styled.div`
 
 export const Tag = styled.span`
   background-color: ${variables.primaryColor};
-  color: ${variables.secundaryColor};
+  color: ${variables.secondaryColor};
   padding: 6px 4px;
   font-size: 12px;
   text-transform: capitalize;
