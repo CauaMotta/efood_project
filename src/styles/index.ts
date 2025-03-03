@@ -35,14 +35,12 @@ export const BuyButton = styled.button`
   margin-top: 8px;
 `
 
-export const IsLoadingMessage = styled.h2`
+export const IsLoadingMessage = styled.div`
   color: ${variables.primaryColor};
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   margin: 40px 0;
-
-  &:after {
-    content: 'Carregando...';
-  }
+  display: flex;
+  justify-content: center;
 `

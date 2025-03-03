@@ -4,6 +4,8 @@ import ProductList from '../../components/ProductList'
 import Cart from '../../components/Cart'
 import { useGetRestaurantProfileQuery } from '../../services/api'
 import { IsLoadingMessage } from '../../styles'
+import { BounceLoader } from 'react-spinners'
+import variables from '../../styles/variables'
 
 const Profile = () => {
   const { id } = useParams()
@@ -13,7 +15,9 @@ const Profile = () => {
     <>
       <Header profile />
       {!restaurant ? (
-        <IsLoadingMessage />
+        <IsLoadingMessage>
+          <BounceLoader color={variables.primaryColor} />
+        </IsLoadingMessage>
       ) : (
         <ProductList restaurant={restaurant} />
       )}

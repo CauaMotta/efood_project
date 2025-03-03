@@ -1,7 +1,9 @@
+import { BounceLoader } from 'react-spinners'
 import Header from '../../components/Header'
 import RestaurantList from '../../components/RestaurantList'
 import { useGetRestaurantsQuery } from '../../services/api'
 import { IsLoadingMessage } from '../../styles'
+import variables from '../../styles/variables'
 
 export type menuModel = {
   id: number
@@ -30,7 +32,9 @@ const Home = () => {
     <>
       <Header />
       {!restaurants ? (
-        <IsLoadingMessage />
+        <IsLoadingMessage>
+          <BounceLoader color={variables.primaryColor} />
+        </IsLoadingMessage>
       ) : (
         <RestaurantList restaurants={restaurants} />
       )}
