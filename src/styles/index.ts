@@ -24,7 +24,7 @@ export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
 `
 
-export const BuyButton = styled.button`
+export const Button = styled.button`
   background-color: ${variables.secondaryColor};
   color: ${variables.primaryColor};
   font-size: 14px;
@@ -32,7 +32,6 @@ export const BuyButton = styled.button`
   padding: 4px;
   border: none;
   cursor: pointer;
-  margin-top: 8px;
 `
 
 export const IsLoadingMessage = styled.div`

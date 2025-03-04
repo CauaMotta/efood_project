@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
-import { BuyButton } from '../../styles'
+import { Button } from '../../styles'
 
 export const CartContainer = styled.div`
   position: fixed;
@@ -17,18 +17,32 @@ export const CartContainer = styled.div`
   }
 `
 
-export const CartContent = styled.aside`
+export const Container = styled.aside`
   width: 360px;
   height: 100%;
   background-color: ${variables.primaryColor};
   padding: 32px 8px 0 8px;
-  font-size: 14px;
   z-index: 1;
 
+  font-size: 14px;
   color: ${variables.secondaryColor};
   font-weight: bold;
 
-  ${BuyButton} {
+  p {
+    line-height: 22px;
+    font-weight: normal;
+  }
+
+  .margin-bottom {
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  > ${Button} {
     width: 100%;
     margin-top: 16px;
   }
@@ -62,12 +76,6 @@ export const Item = styled.li`
     background-color: ${variables.primaryColor};
   }
 
-  h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-
   p {
     font-size: 14px;
     line-height: 22px;
@@ -93,4 +101,49 @@ export const Item = styled.li`
       background-size: contain;
     }
   }
+`
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .numberField,
+  .cardField {
+    display: flex;
+    gap: 24px;
+  }
+
+  .cardField > :first-child {
+    flex: 7;
+  }
+
+  .cardField > :nth-child(2) {
+    flex: 3;
+  }
+`
+
+export const InputField = styled.div`
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input {
+    width: 100%;
+    background-color: ${variables.secondaryColor};
+    color: ${variables.darkFontColor};
+    font-weight: bold;
+    border: 1px solid ${variables.secondaryColor};
+    outline: none;
+    padding: 8px;
+  }
+`
+
+export const ButtonGroup = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
 `

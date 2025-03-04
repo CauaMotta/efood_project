@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import Header from '../../components/Header'
 import ProductList from '../../components/ProductList'
-import Cart from '../../components/Cart'
+import Cart from '../../components/Aside'
 import { useGetRestaurantProfileQuery } from '../../services/api'
 import { IsLoadingMessage } from '../../styles'
 import { BounceLoader } from 'react-spinners'

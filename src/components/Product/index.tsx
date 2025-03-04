@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { menuModel } from '../../pages/Home'
 import descriptionFormatter from '../../utils/DescriptionFormatter'
 import { Card, Description, Modal, ModalContent, Title } from './styles'
-import { BuyButton, Overlay } from '../../styles'
+import { Button, Overlay } from '../../styles'
 import close from '/assets/close.svg'
 import priceFormatter from '../../utils/PriceFormatter'
 import { addItem, openCart } from '../../store/reducers/cart'
@@ -29,9 +29,9 @@ const Product = ({ food }: Props) => {
         <div className="container">
           <Title>{food.nome}</Title>
           <Description>{descriptionFormatter(food.descricao, 150)}</Description>
-          <BuyButton onClick={() => setModalActive(true)}>
+          <Button onClick={() => setModalActive(true)}>
             Adicionar ao carrinho
-          </BuyButton>
+          </Button>
         </div>
       </Card>
 
@@ -46,9 +46,9 @@ const Product = ({ food }: Props) => {
                 <br />
                 Serve: {food.porcao}
               </Description>
-              <BuyButton onClick={addToCart}>
+              <Button onClick={addToCart}>
                 Adicionar ao carrinho - {priceFormatter(food.preco)}
-              </BuyButton>
+              </Button>
             </ModalContent>
             <button aria-label="Close" onClick={() => setModalActive(false)}>
               <span style={{ backgroundImage: `url(${close})` }}></span>

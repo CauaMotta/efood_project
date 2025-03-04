@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
-import { BuyButton } from '../../styles'
+import { Button } from '../../styles'
 
 export const Card = styled.div`
   max-width: 320px;
@@ -19,6 +19,10 @@ export const Card = styled.div`
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
+
+    ${Button} {
+      margin-top: 8px;
+    }
   }
 
   img {
@@ -79,7 +83,7 @@ export const Modal = styled.div`
       margin-bottom: 16px;
     }
 
-    ${BuyButton} {
+    ${Button} {
       align-self: flex-start;
       padding: 4px 8px;
       margin-top: 16px;
