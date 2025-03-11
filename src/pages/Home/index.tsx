@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <Header profile={false} />
       {!restaurants ? (
         <IsLoadingMessage>
           <BounceLoader color={variables.primaryColor} />

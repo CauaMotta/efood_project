@@ -8,7 +8,7 @@ import { openCart } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
 
 export type Props = {
-  profile?: boolean
+  profile: boolean
 }
 
 const Header = ({ profile }: Props) => {
@@ -33,7 +33,10 @@ const Header = ({ profile }: Props) => {
     )
   }
   return (
-    <HeaderContainer style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <HeaderContainer
+      profile={profile}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <img src={efoodLogo} alt="Efood" />
       <Slogan>Viva experiências gastronômicas no conforto da sua casa</Slogan>
     </HeaderContainer>

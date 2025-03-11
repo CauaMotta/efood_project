@@ -103,6 +103,23 @@ export const Item = styled.li`
   }
 `
 
+export const Form = styled.form`
+  display: none;
+
+  .deliveryContainer,
+  .paymentContainer {
+    display: none;
+
+    &.isVisible {
+      display: block;
+    }
+  }
+
+  &.isVisible {
+    display: block;
+  }
+`
+
 export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
@@ -137,6 +154,10 @@ export const InputField = styled.div`
     border: 1px solid ${variables.secondaryColor};
     outline: none;
     padding: 8px;
+
+    &.error {
+      border-color: red;
+    }
   }
 `
 

@@ -7,13 +7,17 @@ import { IsLoadingMessage } from '../../styles'
 import { BounceLoader } from 'react-spinners'
 import variables from '../../styles/variables'
 
+type idParams = {
+  id: string
+}
+
 const Profile = () => {
-  const { id } = useParams()
-  const { data: restaurant } = useGetRestaurantProfileQuery(id!)
+  const { id } = useParams() as idParams
+  const { data: restaurant } = useGetRestaurantProfileQuery(id)
 
   return (
     <>
-      <Header profile />
+      <Header profile={true} />
       {!restaurant ? (
         <IsLoadingMessage>
           <BounceLoader color={variables.primaryColor} />
