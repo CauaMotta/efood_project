@@ -1,42 +1,29 @@
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-
-import { Button, IsLoadingMessage, Overlay } from '../../styles'
-import {
-  CartContainer,
-  Container,
-  Item,
-  InputGroup,
-  InputField,
-  ButtonGroup,
-  Form
-} from './styles'
-import removeIcon from '/assets/remove-icon.svg'
-import { RootReducer } from '../../store'
-import { clearCart, closeCart, removeItem } from '../../store/reducers/cart'
-import priceFormatter from '../../utils/PriceFormatter'
-import { useEffect, useState } from 'react'
-import { usePurchaseMutation } from '../../services/api'
 import InputMask from 'react-input-mask'
 import { BounceLoader } from 'react-spinners'
+
+import { RootReducer } from '../../store'
+import { clearCart, closeCart, removeItem } from '../../store/reducers/cart'
+import { priceFormatter } from '../../utils'
+import { usePurchaseMutation } from '../../services/api'
+
+import { Button, IsLoadingMessage, Overlay } from '../../styles'
+import * as S from './styles'
 import variables from '../../styles/variables'
+import removeIcon from '/assets/remove-icon.svg'
 
 const Cart = () => {
-  const dispatch = useDispatch()
   const { items, isOpen } = useSelector((state: RootReducer) => state.cart)
   const [purchase, { data, isLoading, isSuccess }] = usePurchaseMutation()
+  const dispatch = useDispatch()
 
   const [delivery, setDelivery] = useState(false)
   const [payment, setPayment] = useState(false)
   const [disableDeliveryButton, setDisableDeliveryButton] = useState(true)
   const [disablePaymentButton, setDisablePaymentButton] = useState(true)
-
-  const getTotalPrice = () => {
-    return items.reduce((acc, value) => {
-      return (acc += value.preco)
-    }, 0)
-  }
 
   const form = useFormik({
     initialValues: {
@@ -63,19 +50,23 @@ const Cart = () => {
         .min(5, 'A cidade deve ter no mínimo 5 caracteres')
         .required('A cidade é obrigatória'),
       cep: Yup.string()
-        .min(8, 'O CEP deve ter no mínimo 8 caracteres')
+        .min(9, 'O CEP deve ter no mínimo 8 caracteres')
+        .max(9, 'O CEP deve ter no máximo 8 caracteres')
         .required('O CEP é obrigatório'),
       houseNumber: Yup.string()
-        .min(1, 'O número da casa deve ter no mínimo 1 caracter')
+        .min(2, 'O número da casa deve ter no mínimo 2 caracter')
+        .max(5, 'O número da casa deve ter no máximo 5 caracteres')
         .required('O número da casa é obrigatório'),
       cardName: Yup.string()
         .min(3, 'O nome no cartão deve ter no mínimo 3 caracteres')
         .required('O nome no cartão é obrigatório'),
       cardNumber: Yup.string()
-        .min(16, 'O número do cartão deve ter no mínimo 16 caracteres')
+        .min(19, 'O número do cartão deve ter no mínimo 16 caracteres')
+        .max(19, 'O número do cartão deve ter no máximo 16 caracteres')
         .required('O número do cartão é obrigatório'),
       cardCode: Yup.string()
         .min(3, 'O CVV deve ter no mínimo 3 caracteres')
+        .max(3, 'O CVV deve ter no máximo 3 caracteres')
         .required('O CVV é obrigatório'),
       expiresMonth: Yup.string()
         .min(2, 'O mês de expiração deve ter no mínimo 2 caracteres')
@@ -115,6 +106,37 @@ const Cart = () => {
     }
   })
 
+  const getTotalPrice = () => {
+    return items.reduce((acc, value) => {
+      return (acc += value.preco)
+    }, 0)
+  }
+
+  const isError = (fieldName: string) => {
+    const isTouched = fieldName in form.touched
+    const isInvalid = fieldName in form.errors
+
+    if (isTouched && isInvalid) return true
+    return false
+  }
+
+  const changeFormContainer = (value: string) => {
+    if (value === 'Voltar para o carrinho') setDelivery(false)
+    if (value === 'Continuar com o pagamento') setPayment(true)
+    if (value === 'Voltar para a edição de endereço') setPayment(false)
+    if (value === 'Finalizar pagamento') {
+      form.handleSubmit()
+      setDelivery(false)
+      setPayment(false)
+    }
+    if (value === 'Concluir') {
+      dispatch(closeCart())
+    }
+  }
+
+  const isDisabled =
+    delivery && !payment ? disableDeliveryButton : disablePaymentButton
+
   useEffect(() => {
     const isAnyFieldTouched = Object.values(form.touched).some((value) => value)
 
@@ -153,76 +175,50 @@ const Cart = () => {
     dispatch(clearCart())
   }, [isSuccess, dispatch])
 
-  const isError = (fieldName: string) => {
-    const isTouched = fieldName in form.touched
-    const isInvalid = fieldName in form.errors
-
-    if (isTouched && isInvalid) return true
-    return false
-  }
-
-  const changeFormContainer = (value: string) => {
-    if (value === 'Voltar para o carrinho') setDelivery(false)
-    if (value === 'Continuar com o pagamento') setPayment(true)
-    if (value === 'Voltar para a edição de endereço') setPayment(false)
-    if (value === 'Finalizar pagamento') {
-      form.handleSubmit()
-      setDelivery(false)
-      setPayment(false)
-    }
-  }
-
-  const isDisabled =
-    delivery && !payment ? disableDeliveryButton : disablePaymentButton
-
   return (
-    <CartContainer className={isOpen ? 'isOpen' : ''}>
+    <S.CartContainer className={isOpen ? 'isOpen' : ''}>
       <Overlay onClick={() => dispatch(closeCart())} />
-      <Container>
-        {items.length === 0 && <p>O seu carrinho está vazio!</p>}
-        {!delivery &&
-          !payment &&
-          !isSuccess &&
-          !isLoading &&
-          items.length > 0 && (
-            <>
-              <ul>
-                {items.map((item) => (
-                  <Item>
-                    <img src={item.foto} alt={item.nome} />
-                    <div>
-                      <h3>{item.nome}</h3>
-                      <p>{priceFormatter(item.preco)}</p>
-                    </div>
-                    <button
-                      aria-label="remove"
-                      onClick={() => dispatch(removeItem(item.id))}
-                    >
-                      <span
-                        style={{ backgroundImage: `url(${removeIcon})` }}
-                      ></span>
-                    </button>
-                  </Item>
-                ))}
-              </ul>
-              <div className="finalValue">
-                <span>Valor total</span>
-                <span>{priceFormatter(getTotalPrice())}</span>
-              </div>
-              <Button type="button" onClick={() => setDelivery(true)}>
-                Continuar com a entrega
-              </Button>
-            </>
-          )}
-        <Form className={delivery || payment ? 'isVisible' : ''}>
+      <S.Container>
+        {items.length === 0 && !isSuccess && <p>O seu carrinho está vazio!</p>}
+        {!delivery && items.length > 0 && !isLoading && (
+          <>
+            <ul>
+              {items.map((item) => (
+                <S.Item>
+                  <img src={item.foto} alt={item.nome} />
+                  <div>
+                    <h3>{item.nome}</h3>
+                    <p>{priceFormatter(item.preco)}</p>
+                  </div>
+                  <button
+                    aria-label="remove"
+                    onClick={() => dispatch(removeItem(item.id))}
+                  >
+                    <span
+                      style={{ backgroundImage: `url(${removeIcon})` }}
+                    ></span>
+                  </button>
+                </S.Item>
+              ))}
+            </ul>
+            <div className="finalValue">
+              <span>Valor total</span>
+              <span>{priceFormatter(getTotalPrice())}</span>
+            </div>
+            <Button type="button" onClick={() => setDelivery(true)}>
+              Continuar com a entrega
+            </Button>
+          </>
+        )}
+        <S.Form className={delivery || payment ? 'isVisible' : ''}>
           <div
             className={`deliveryContainer ${
               delivery && !payment ? 'isVisible' : ''
             }`}
           >
             <h3>Entrega</h3>
-            <InputGroup>
-              <InputField>
+            <S.InputGroup>
+              <S.InputField>
                 <label htmlFor="fullName">Quem irá receber</label>
                 <input
                   id="fullName"
@@ -233,8 +229,8 @@ const Cart = () => {
                   onBlur={form.handleBlur}
                   className={isError('fullName') ? 'error' : ''}
                 />
-              </InputField>
-              <InputField>
+              </S.InputField>
+              <S.InputField>
                 <label htmlFor="address">Endereço</label>
                 <input
                   id="address"
@@ -245,8 +241,8 @@ const Cart = () => {
                   onBlur={form.handleBlur}
                   className={isError('address') ? 'error' : ''}
                 />
-              </InputField>
-              <InputField>
+              </S.InputField>
+              <S.InputField>
                 <label htmlFor="city">Cidade</label>
                 <input
                   id="city"
@@ -257,9 +253,9 @@ const Cart = () => {
                   onBlur={form.handleBlur}
                   className={isError('city') ? 'error' : ''}
                 />
-              </InputField>
+              </S.InputField>
               <div className="numberField">
-                <InputField>
+                <S.InputField>
                   <label htmlFor="cep">CEP</label>
                   <InputMask
                     mask="99999-999"
@@ -271,8 +267,8 @@ const Cart = () => {
                     onBlur={form.handleBlur}
                     className={isError('cep') ? 'error' : ''}
                   />
-                </InputField>
-                <InputField>
+                </S.InputField>
+                <S.InputField>
                   <label htmlFor="houseNumber">Número</label>
                   <InputMask
                     mask="99999"
@@ -284,9 +280,9 @@ const Cart = () => {
                     onBlur={form.handleBlur}
                     className={isError('houseNumber') ? 'error' : ''}
                   />
-                </InputField>
+                </S.InputField>
               </div>
-              <InputField>
+              <S.InputField>
                 <label htmlFor="complement">Complemento (opcional)</label>
                 <input
                   id="complement"
@@ -296,13 +292,13 @@ const Cart = () => {
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                 />
-              </InputField>
-            </InputGroup>
+              </S.InputField>
+            </S.InputGroup>
           </div>
           <div className={`paymentContainer ${payment ? 'isVisible' : ''}`}>
             <h3>Pagamento - Valor a pagar {priceFormatter(getTotalPrice())}</h3>
-            <InputGroup>
-              <InputField>
+            <S.InputGroup>
+              <S.InputField>
                 <label htmlFor="cardName">Nome no cartão</label>
                 <input
                   id="cardName"
@@ -313,9 +309,9 @@ const Cart = () => {
                   onBlur={form.handleBlur}
                   className={isError('cardName') ? 'error' : ''}
                 />
-              </InputField>
+              </S.InputField>
               <div className="cardField">
-                <InputField>
+                <S.InputField>
                   <label htmlFor="cardNumber">Número do cartão</label>
                   <InputMask
                     mask="9999 9999 9999 9999"
@@ -327,8 +323,8 @@ const Cart = () => {
                     onBlur={form.handleBlur}
                     className={isError('cardNumber') ? 'error' : ''}
                   />
-                </InputField>
-                <InputField>
+                </S.InputField>
+                <S.InputField>
                   <label htmlFor="cardCode">CVV</label>
                   <InputMask
                     mask="999"
@@ -340,10 +336,10 @@ const Cart = () => {
                     onBlur={form.handleBlur}
                     className={isError('cardCode') ? 'error' : ''}
                   />
-                </InputField>
+                </S.InputField>
               </div>
               <div className="numberField">
-                <InputField>
+                <S.InputField>
                   <label htmlFor="expiresMonth">Mês de vencimento</label>
                   <InputMask
                     mask="99"
@@ -355,8 +351,8 @@ const Cart = () => {
                     onBlur={form.handleBlur}
                     className={isError('expiresMonth') ? 'error' : ''}
                   />
-                </InputField>
-                <InputField>
+                </S.InputField>
+                <S.InputField>
                   <label htmlFor="expiresYear">Ano de Vencimento</label>
                   <InputMask
                     mask="9999"
@@ -368,11 +364,11 @@ const Cart = () => {
                     onBlur={form.handleBlur}
                     className={isError('expiresYear') ? 'error' : ''}
                   />
-                </InputField>
+                </S.InputField>
               </div>
-            </InputGroup>
+            </S.InputGroup>
           </div>
-          <ButtonGroup>
+          <S.ButtonGroup>
             <Button
               type="button"
               onClick={({ currentTarget }) =>
@@ -394,14 +390,14 @@ const Cart = () => {
                 ? 'Voltar para o carrinho'
                 : 'Voltar para a edição de endereço'}
             </Button>
-          </ButtonGroup>
-        </Form>
+          </S.ButtonGroup>
+        </S.Form>
         {isLoading && (
           <IsLoadingMessage>
             <BounceLoader color={variables.secondaryColor} />
           </IsLoadingMessage>
         )}
-        {isSuccess && (
+        {isSuccess && data && (
           <>
             <h3>Pedido realizado - {data.orderId}</h3>
             <p className="margin-bottom">
@@ -421,13 +417,19 @@ const Cart = () => {
               Esperamos que desfrute de uma deliciosa e agradável experiência
               gastronômica. Bom apetite!
             </p>
-            <ButtonGroup>
-              <Button onClick={() => dispatch(closeCart())}>Concluir</Button>
-            </ButtonGroup>
+            <S.ButtonGroup>
+              <Button
+                onClick={({ currentTarget }) =>
+                  changeFormContainer(currentTarget.innerText)
+                }
+              >
+                Concluir
+              </Button>
+            </S.ButtonGroup>
           </>
         )}
-      </Container>
-    </CartContainer>
+      </S.Container>
+    </S.CartContainer>
   )
 }
 

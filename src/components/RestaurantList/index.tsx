@@ -1,6 +1,6 @@
 import Restaurant from '../Restaurant'
+
 import { MainContainer } from './styles'
-import { RestaurantModel } from '../../pages/Home'
 
 type Props = {
   restaurants: RestaurantModel[]

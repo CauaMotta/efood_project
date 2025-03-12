@@ -1,20 +1,20 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { menuModel } from '../../pages/Home'
-import descriptionFormatter from '../../utils/DescriptionFormatter'
+
+import { descriptionFormatter, priceFormatter } from '../../utils'
+import { addItem, openCart } from '../../store/reducers/cart'
+
 import { Card, Description, Modal, ModalContent, Title } from './styles'
 import { Button, Overlay } from '../../styles'
 import close from '/assets/close.svg'
-import priceFormatter from '../../utils/PriceFormatter'
-import { addItem, openCart } from '../../store/reducers/cart'
 
 type Props = {
   food: menuModel
 }
 
 const Product = ({ food }: Props) => {
-  const [modalActive, setModalActive] = useState(false)
   const dispatch = useDispatch()
+  const [modalActive, setModalActive] = useState(false)
 
   const addToCart = () => {
     dispatch(addItem(food))

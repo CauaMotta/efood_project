@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { RootReducer } from '../../store'
+import { openCart } from '../../store/reducers/cart'
 
 import { HeaderContainer, NavButton, Slogan, Container } from './styles'
 import backgroundImage from '/assets/header-background.png'
 import efoodLogo from '/assets/efood-logo.svg'
-import { useDispatch, useSelector } from 'react-redux'
-import { openCart } from '../../store/reducers/cart'
-import { RootReducer } from '../../store'
 
 export type Props = {
   profile: boolean
