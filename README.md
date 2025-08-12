@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+# 🚀 eFood Project – Plataforma de Delivery React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma plataforma de delivery desenvolvida para o curso da **EBAC**, com uma implementação fiel ao design original do **Figma**.  
+A aplicação foi construída em **React** utilizando **TypeScript** e gerenciamento de estado via **Redux**, garantindo uma experiência dinâmica e responsiva.  
+Inclui integração com API, formulários validados com **Formik** e **Yup** para garantir a qualidade dos dados de entrada, além de navegação fluida entre páginas usando **React Router Dom**.  
+A interface é estilizada com **Styled Components** para manter a modularidade e reutilização dos estilos, enquanto componentes como **React Input Mask** e **React Spinners** aprimoram a usabilidade e feedback visual.
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡ [Vite](https://vitejs.dev/) – Build tool para otimizar performance
+- 💙 [TypeScript](https://www.typescriptlang.org/) – Superset do JavaScript com tipagem estática
+- ⚛️ [React](https://reactjs.org/) – Biblioteca para construção da UI
+- 💅 [Styled Components](https://styled-components.com/) – Estilização CSS-in-JS
+- 🗂️ [Redux](https://redux.js.org/) – Gerenciamento global de estado
+- 📝 [Formik](https://formik.org/) – Gerenciamento e validação de formulários
+- ✅ [Yup](https://github.com/jquense/yup) – Validação de esquema para formulários
+- 🧭 [React Router Dom](https://reactrouter.com/) – Navegação entre páginas
+- 🎭 [React Input Mask](https://github.com/sanniassin/react-input-mask) – Máscaras para campos de entrada
+- 🔄 [React Spinners](https://www.davidhu.io/react-spinners/) – Componentes de carregamento estilizados para React
 
-## Expanding the ESLint configuration
+## 📦 Instalação e Execução
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Para rodar o projeto localmente, siga os passos abaixo:
 
-- Configure the top-level `parserOptions` property like this:
+```sh
+# Clone este repositório
+git clone https://github.com/CauaMotta/efood_project
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+# Acesse a pasta do projeto
+cd efood_project
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+# Instale as dependências
+npm install
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+# Execute o projeto
+npm run dev
